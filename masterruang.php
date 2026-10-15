@@ -1,7 +1,6 @@
 <?php
 require_once "koneksi.php";
 
-// Proses tambah ruang
 if (isset($_POST['tambah'])) {
     $nama_ruang = trim($_POST['nama_ruang']);
     $gedung = trim($_POST['gedung']);
@@ -21,7 +20,6 @@ if (isset($_POST['tambah'])) {
     }
 }
 
-// Proses edit ruang
 if (isset($_POST['edit'])) {
     $id = (int) $_POST['id'];
     $nama_ruang = trim($_POST['nama_ruang']);
@@ -42,7 +40,6 @@ if (isset($_POST['edit'])) {
     }
 }
 
-// Proses hapus ruang
 if (isset($_POST['hapus'])) {
     $id = (int) $_POST['id'];
 
@@ -61,7 +58,6 @@ if (isset($_POST['hapus'])) {
     exit;
 }
 
-// Ambil data ruang untuk diedit
 $data_edit = null;
 
 if (isset($_GET['edit'])) {
@@ -81,7 +77,6 @@ if (isset($_GET['edit'])) {
     mysqli_stmt_close($stmt);
 }
 
-// Ambil seluruh data ruang
 $data_ruang = mysqli_query(
     $conn,
     "SELECT * FROM master_ruang ORDER BY id ASC"
